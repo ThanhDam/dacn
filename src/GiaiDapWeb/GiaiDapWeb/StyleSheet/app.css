@@ -1,0 +1,35 @@
+﻿/* Styles go here */
+.container{
+  position:relative;
+  width:800px;
+  height:auto;
+  float:left;
+  margin: 0px auto;
+}
+
+.header{
+  background-color:orange;
+  height:100px;
+}
+.menu_bar{
+  height:40px;
+  background-color:pink;
+}
+
+.main{
+  height:auto;
+  float:left;
+}
+
+.left_side{
+  width:650px;
+  background-color:yellow;
+  height:500px;
+}
+.right_side{
+  width:150px;
+  background-color:grey;
+  height:500px;
+}
+
+
