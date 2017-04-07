@@ -1,0 +1,37 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Root.master.cs" Inherits="GiaiDapWeb.Master_Page.Root" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Giải đáp cho sinh viên</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="Script/bootstrap.min.css" ></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+</head>
+<body ng-app="myApp">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-header">
+                    <h1>Giải đáp thắc mắc cho Sinh Viên</h1>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3" >
+                <ul>
+                    <li>Câu hỏi</li>
+                </ul>
+            </div>
+            <div class="col-xs-9">
+                <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
