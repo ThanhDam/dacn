@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace GiaiDapWeb
 {
-    public partial class Root : System.Web.UI.MasterPage
+    public partial class RootPage : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GiaiDapWeb.Master_Page {
+namespace GiaiDapWeb {
     
     
-    public partial class Root {
+    public partial class RootPage {
     }
 }
