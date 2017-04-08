@@ -7,13 +7,14 @@
     <title>Giải đáp cho sinh viên</title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="StyleSheet/app.css" rel="stylesheet"/>
     <script src="Script/bootstrap.min.css" ></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular.js"></script>
 </head>
 <body ng-app="myApp">
     
-    <div class="container">
+   <%-- <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header">
@@ -32,6 +33,6 @@
                 <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
             </div>
         </div>
-    </div>
+    </div>--%>
 </body>
 </html>
