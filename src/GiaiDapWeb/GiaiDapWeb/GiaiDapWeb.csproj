@@ -995,6 +995,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="StyleSheet\carousel.css" />
+    <Content Include="StyleSheet\dashboard.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1021,7 +1022,8 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\version.json" />
-    <Content Include="Views\Shared\index.cshtml" />
+    <Content Include="Views\Shared\indexRant1.cshtml" />
+    <Content Include="Views\Shared\indexRant3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
