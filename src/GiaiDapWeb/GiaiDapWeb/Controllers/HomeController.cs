@@ -22,7 +22,7 @@ namespace GiaiDapWeb.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Liên hệ trực tiếp với trường ngay khi cần thiết.";
 
             return View();
         }

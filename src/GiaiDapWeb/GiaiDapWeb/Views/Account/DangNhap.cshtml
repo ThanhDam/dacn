@@ -19,41 +19,7 @@
 <body>
     @using (Html.BeginForm())
     {
-        @*@Html.ValidationSummary(true)
-            <fieldset>
-
-                @using (Html.BeginForm("DangNhap", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { }))
-                {
-
-
-                    <div class="editor-label">
-                        UserName:
-                    </div>
-                    <div class="editor-field">
-                        @Html.TextBox("username")
-                    </div>
-
-                    <div class="editor-label">
-                        Password:
-                    </div>
-                    <div class="editor-field">
-                        @Html.Password("password")
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.RememberMe)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.RememberMe)
-                        @Html.ValidationMessageFor(model => model.RememberMe)
-                    </div>
-                    <p>
-                        <input type="submit" value="Đăng Nhập" />
-                    </p>
-
-                }
-            </fieldset>
-            @ViewBag.ThongBao*@
+       
         <div class="container">
             <div class="row main">
                 <div class="main-login main-center">
