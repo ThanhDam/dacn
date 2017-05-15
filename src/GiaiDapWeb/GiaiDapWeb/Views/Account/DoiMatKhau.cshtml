@@ -1,0 +1,77 @@
+﻿@model  GiaiDapWeb.ViewModel.ChangePasswordVM
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- website css style -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- website font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/StyleSheet/signin.css">
+
+    <title>Đổi mật khẩu</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <div class="row main">
+                <div class="main-login main-center">
+                    @Html.ValidationSummary(true)
+                    <form class="" method="post" action="#">
+                        <div class="form-group">
+                            <label for="username" class="cols-sm-2 control-label">Mật khẩu cũ</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="oldpass" id="oldpass" placeholder="Nhập mật khẩu cũ" />
+                                </div>
+                                @Html.ValidationMessageFor(model => model.OldPassword)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="cols-sm-2 control-label">Mật khẩu mới</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="newpass" id="newpass" placeholder="Nhập mật khẩu mới" />
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NewPassword)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="cols-sm-2 control-label">Xác nhận mật khẩu</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="newpass" id="newpass" placeholder="Xác nhận mật khẩu" />
+                                </div>
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <input type="submit" value="Lưu thay đổi" class="btn btn-primary btn-lg btn-block login-button" />
+                            @ViewBag.Message
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    }
+    <!-- jquery (necessary for bootstrap's javascript plugins) -->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <!-- include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+</body>
+</html>

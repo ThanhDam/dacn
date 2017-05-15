@@ -1,0 +1,83 @@
+﻿@model GiaiDapWeb.Models.Student
+
+@{
+    //Layout = null;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Student</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.date_of_birth)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.date_of_birth)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.@class)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.@class)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sex)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sex)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.school_year)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.school_year)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.education_level)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.education_level)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.student_id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

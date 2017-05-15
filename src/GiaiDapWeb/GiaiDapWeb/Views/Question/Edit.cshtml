@@ -1,0 +1,36 @@
+﻿@model GiaiDapWeb.Models.Question
+
+@{
+    ViewBag.Title = "Edit";
+   
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link href="../StyleSheet/dashboard.css" rel="stylesheet">
+<h2>Edit</h2>
+<div class="table-responsive">
+
+</div>
+<div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.id)
+    </div>
+    <div class="editor-field">
+        @Html.DropDownList("LoaiCauHoi", String.Empty)
+        @Html.ValidationMessageFor(model => model.type_id)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.text)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.student_id)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.time_request)
+    </div>
+    <p>
+        <input type="submit" value="Lưu " />
+    </p>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

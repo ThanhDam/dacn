@@ -11,11 +11,14 @@ namespace GiaiDapWeb.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Question
     {
         public long id { get; set; }
+        [Required(ErrorMessage = "* Required")]
         public int type_id { get; set; }
+        [Required(ErrorMessage = "* Required")]
         public string text { get; set; }
         public string student_id { get; set; }
         public System.DateTime time_request { get; set; }

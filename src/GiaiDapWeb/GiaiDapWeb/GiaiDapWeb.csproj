@@ -173,7 +173,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Adminitrator\AdminitratorAreaRegistration.cs" />
+    <Compile Include="Areas\Adminitrator\Controllers\AnswerController.cs" />
+    <Compile Include="Areas\Adminitrator\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Adminitrator\Controllers\QuestionController.cs" />
+    <Compile Include="Areas\Adminitrator\Models\ReflectionController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnswerController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
     <Compile Include="Controllers\GrantPermissionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -220,6 +228,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\AccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -238,17 +247,18 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Images\brg_color.jpg" />
     <Content Include="Images\cir_tc.jpg" />
     <Content Include="Images\congtac.jpg" />
     <Content Include="Images\daotao.jpg" />
-    <Content Include="Images\nav_ctsv.png" />
+    <Content Include="Images\nav_sdh.jpg" />
     <Content Include="Images\nav_dt.png" />
-    <Content Include="Images\nav_sdh.png" />
     <Content Include="Images\nav_tc.png" />
     <Content Include="Images\nav_vb.png" />
     <Content Include="Images\saudh.jpg" />
     <Content Include="Images\taichinh.jpg" />
     <Content Include="Images\vanbang.jpg" />
+    <Content Include="Images\nav_ctsv.png" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -306,6 +316,15 @@
       <DependentUpon>RequestDB.edmx</DependentUpon>
       <LastGenOutput>RequestDB.cs</LastGenOutput>
     </Content>
+    <Content Include="Areas\Adminitrator\Views\web.config" />
+    <Content Include="Areas\Adminitrator\Views\Question\Create.cshtml" />
+    <Content Include="Areas\Adminitrator\Views\Question\Index.cshtml" />
+    <Content Include="Areas\Adminitrator\Views\Question\Edit.cshtml" />
+    <Content Include="Areas\Adminitrator\Views\Answer\Index.cshtml" />
+    <Content Include="Areas\Adminitrator\Views\Answer\Create.cshtml" />
+    <Content Include="Areas\Adminitrator\Views\Answer\Edit.cshtml" />
+    <Content Include="Areas\Adminitrator\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Adminitrator\Views\Shared\_Layout.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1047,6 +1066,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\login.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -1054,6 +1074,7 @@
     <Content Include="StyleSheet\carousel.css" />
     <Content Include="StyleSheet\dashboard.css" />
     <Content Include="StyleSheet\login.css" />
+    <Content Include="StyleSheet\signin.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1082,8 +1103,34 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\GrantPermission\indexRant1.cshtml" />
     <Content Include="Views\GrantPermission\indexRant3.cshtml" />
-    <Content Include="Views\GrantPermission\Index.cshtml" />
     <Content Include="Views\Account\DangNhap.cshtml" />
+    <Content Include="Views\Account\DangKy.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Account\Index3.cshtml" />
+    <Content Include="Views\Question\LoadQuestion.cshtml" />
+    <Content Include="Views\Shared\_Signin.cshtml" />
+    <Content Include="Views\Question\Create.cshtml" />
+    <Content Include="Views\Question\Detail.cshtml" />
+    <Content Include="Views\Question\Edit.cshtml" />
+    <Content Include="Views\Question\Index.cshtml" />
+    <Content Include="Views\Question\QuestionId.cshtml" />
+    <Content Include="Views\Question\QuestionList.cshtml" />
+    <Content Include="Views\Question\EditorPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Question\Delete.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\DoiMatKhau.cshtml" />
+    <Content Include="Views\Answer\Index.cshtml" />
+    <Content Include="Views\Answer\Detail.cshtml" />
+    <Content Include="Views\Answer\Create.cshtml" />
+    <Content Include="Views\Answer\Edit.cshtml" />
+    <Content Include="Views\Answer\Delete.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Answer\AnswerId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

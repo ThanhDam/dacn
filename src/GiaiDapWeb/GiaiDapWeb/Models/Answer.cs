@@ -11,11 +11,13 @@ namespace GiaiDapWeb.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Answer
     {
         public long id { get; set; }
         public long question_id { get; set; }
+        [Required(ErrorMessage = "* Required")]
         public string text { get; set; }
         public string ministry_id { get; set; }
         public System.DateTime time_respond { get; set; }

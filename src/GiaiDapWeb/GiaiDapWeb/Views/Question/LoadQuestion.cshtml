@@ -1,0 +1,16 @@
+﻿@model List<GiaiDapWeb.Models.Question>
+@{
+    ViewBag.Title = "LoadQuestion";
+    Layout = "~/Views/GrantPermission/indexRant3.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <tr>
+        <th>@item.id</th>
+        <th>@item.type_id</th>
+        <th>@item.student_id</th>
+        <th>@item.text</th>
+        <th>@item.time_request</th>
+    </tr>
+}

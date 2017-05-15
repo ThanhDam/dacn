@@ -1,0 +1,41 @@
+﻿@model IEnumerable<GiaiDapWeb.Models.Answer>
+@{
+    ViewBag.Title = "Xem câu trả lời";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xem câu trả lời</h2>
+
+<link href="../StyleSheet/dashboard.css" rel="stylesheet">
+<h2 class="sub-header" style="padding-left:20%">Xem câu trả lời</h2>
+<div class="table-responsive">
+    <table class="table table-striped" style="float:right">
+        <thead>
+            <tr>
+                <th></th>
+                <th>#</th>
+                <th>Mã câu hỏi</th>
+                <th>Mã số giáo vụ</th>
+                <th>Nội dung</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+                <tr>
+                    @*<td width="20%"></td>
+                    <td width="20%">@Html.DisplayFor(model => model.id)</td>
+
+                    <td width="20%">@Html.DisplayFor(model=> model.question_id)</td>
+                    <td width="20%">@Html.DisplayFor(model => model.ministry_id)</td>
+                    <td width="20%">@Html.DisplayFor(model =>model.text)</td>*@
+                   
+                    
+                </tr>
+
+
+            
+        </tbody>
+    </table>
+</div>

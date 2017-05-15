@@ -1,0 +1,86 @@
+﻿@model GiaiDapWeb.ViewModel.UserVM
+
+@{
+    ViewBag.Title = "DangKy";
+    Layout = null;
+}
+
+@*
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- website css style -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- website font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/StyleSheet/signin.css">
+    
+    <title>Đăng ký</title>
+</head>
+<body>
+    @using (@Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+       
+            <div class="container">
+                <div class="row main">
+                    <div class="main-login main-center">
+                        @Html.ValidationSummary(true)
+                        <form class="" method="post" action="#">
+                            <div class="form-group">
+                                <label for="username" class="cols-sm-2 control-label">Username</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username" />
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.UserName)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="cols-sm-2 control-label">Password</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Password)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <input type="submit" value="Đăng ký" class="btn btn-primary btn-lg btn-block login-button"  />
+                                @ViewBag.Message
+                                @*<a href="@Url.Action("DangKy","Account")" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Đăng ký</a>*@
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+    }
+    <div>
+        
+    </div>
+            <!-- jquery (necessary for bootstrap's javascript plugins) -->
+            <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+            <script src="~/Scripts/jquery.validate.min.js"></script>
+            <!-- include all compiled plugins (below), or include individual files as needed -->
+            <script src="../../dist/js/bootstrap.min.js"></script>
+</body>
+</html>

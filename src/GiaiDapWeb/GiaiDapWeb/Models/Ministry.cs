@@ -11,6 +11,7 @@ namespace GiaiDapWeb.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Ministry
     {
@@ -18,11 +19,16 @@ namespace GiaiDapWeb.Models
         {
             this.Answers = new HashSet<Answer>();
         }
-    
+
+        [Required(ErrorMessage = "* Required")]
         public string ministry_id { get; set; }
+        [Required(ErrorMessage = "* Required")]
         public string name { get; set; }
+        [Required(ErrorMessage = "* Required")]
         public System.DateTime date_of_birth { get; set; }
+        [Required(ErrorMessage = "* Required")]
         public string address { get; set; }
+        [Required(ErrorMessage = "* Required")]
         public bool sex { get; set; }
     
         public virtual ICollection<Answer> Answers { get; set; }

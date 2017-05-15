@@ -1,0 +1,46 @@
+﻿
+@model GiaiDapWeb.Models.Question
+@Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/ckfinder/ckfinder.js"></script>
+@*<script type="text/javascript">
+    function BrowseServer() {
+        var finder = new CKFinder();
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField(fileUrl) {
+        document.getElementById('Image').value = fileUrl;
+    }
+</script>*@
+
+@using (Html.BeginForm("Create", "Question", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend></legend>
+
+      
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("LoaiCauHoi", String.Empty)
+            @Html.ValidationMessageFor(model => model.type_id)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.text)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.student_id)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.time_request)
+        </div>
+        <p>
+            <input type="submit" value="Lưu " />
+        </p>
+    </fieldset>
+}
+

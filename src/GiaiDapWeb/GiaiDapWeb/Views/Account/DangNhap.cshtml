@@ -1,51 +1,112 @@
-﻿
-@{
-    ViewBag.Title = "DangNhap";
-}
+﻿@model GiaiDapWeb.ViewModel.LogOnModel
 
-<div id="dangnhap">
-    @using (@Html.BeginForm("Index", "Account", new { @strURL = Request.Url.ToString() }))
-    {
-        <table>
-            <tr>
-                <td>@Html.Label("Username:")</td>
-                <td>@Html.TextBox("txtUsernameAd", null, new { @style = "width:300px" })</td>
-                <td><input type="submit" value="Dang Nhap" id="btndangnhap" /></td>
-            </tr>
-            <tr>
-                <td>@Html.Label("PassWord:")</td>
-                <td>@Html.Password("txtMatkhauAd", null, new { @style = "width:300px;" })</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td colspan="4">@ViewBag.ThongBao</td>
-            </tr>
-        </table>
-    }
-</div>
 @{
-    if (Request.Cookies["myCookiesAd"] != null)
-    {
-        HttpCookie ck = Request.Cookies["myCookiesAd"];
-        Session["maTaiKhoanAd"] = ck["nameAd"].ToString();
-    }
+    ViewBag.Title = "LogOn";
+    Layout = null;
 }
-@using GiaiDapWeb.Models;
-@if (Session["maTaiKhoanAd"] != null)
-{
-    RequestDBEntities db = new RequestDBEntities();
-    string un = Session["username"].ToString();
-    var kq = db.Accounts.Where(n => n.username == un).ToList<Account>();
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <div id="">
-        @Session["maTaiKhoanAd"].ToString()<br />
-        <a href="@Url.Action("DangXuat", "Account",new {@strURL=Request.Url.ToString() })" style="text-decoration:none">Đăng xuất</a>
-    </div>
+    <!-- website css style -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- website font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/StyleSheet/signin.css">
+
+    <title>Đăng ký</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @*@Html.ValidationSummary(true)
+            <fieldset>
+
+                @using (Html.BeginForm("DangNhap", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { }))
+                {
+
+
+                    <div class="editor-label">
+                        UserName:
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBox("username")
+                    </div>
+
+                    <div class="editor-label">
+                        Password:
+                    </div>
+                    <div class="editor-field">
+                        @Html.Password("password")
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.RememberMe)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.RememberMe)
+                        @Html.ValidationMessageFor(model => model.RememberMe)
+                    </div>
+                    <p>
+                        <input type="submit" value="Đăng Nhập" />
+                    </p>
+
+                }
+            </fieldset>
+            @ViewBag.ThongBao*@
+        <div class="container">
+            <div class="row main">
+                <div class="main-login main-center">
+                    @Html.ValidationSummary(true)
+                    <form class="" method="post" action="#">
+                        <div class="form-group">
+                            <label for="username" class="cols-sm-2 control-label">ID</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="username" id="username" placeholder="Nhập ID" />
+                                </div>
+                                @Html.ValidationMessageFor(model => model.username)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="cols-sm-2 control-label">Mật khẩu</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="Nhập mật khẩu" />
+                                </div>
+                                @Html.ValidationMessageFor(model => model.password)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="cols-sm-10">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.RememberMe)
+                                    @Html.EditorFor(model => model.RememberMe)
+                                    @Html.ValidationMessageFor(model => model.RememberMe)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <input type="submit" value="Đăng nhập" class="btn btn-primary btn-lg btn-block login-button" />
+                            @ViewBag.ThongBao
+                           
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    }
+    <!-- jquery (necessary for bootstrap's javascript plugins) -->
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script>
-                    $(function () {
-                        $('#dangnhap').hide();
-                    });
-    </script>
-}
-
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <!-- include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+</body>
+</html>
