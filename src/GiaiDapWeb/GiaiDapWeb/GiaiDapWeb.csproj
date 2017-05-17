@@ -180,6 +180,7 @@
     <Compile Include="Areas\Adminitrator\Models\ReflectionController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnswerController.cs" />
+    <Compile Include="Controllers\MinistriesController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
@@ -251,7 +252,7 @@
     <Content Include="Images\cir_tc.jpg" />
     <Content Include="Images\congtac.jpg" />
     <Content Include="Images\daotao.jpg" />
-    <Content Include="Images\nav_sdh.jpg" />
+    <Content Include="Images\nav_sdh.png" />
     <Content Include="Images\nav_dt.png" />
     <Content Include="Images\nav_tc.png" />
     <Content Include="Images\nav_vb.png" />
@@ -1131,6 +1132,16 @@
     <Content Include="Views\Students\Edit.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
     <Content Include="Views\Answer\AnswerId.cshtml" />
+    <Content Include="Views\Ministries\Create.cshtml" />
+    <Content Include="Views\Ministries\Delete.cshtml" />
+    <Content Include="Views\Ministries\Details.cshtml" />
+    <Content Include="Views\Ministries\Edit.cshtml" />
+    <Content Include="Views\Ministries\Index.cshtml" />
+    <Content Include="Views\Account\Search.cshtml" />
+    <Content Include="Views\Account\DangXuat.cshtml" />
+    <Content Include="Views\Answer\AnswerList.cshtml" />
+    <Content Include="Views\Answer\ViewAnswer.cshtml" />
+    <Content Include="Views\Answer\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

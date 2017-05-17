@@ -20,10 +20,19 @@ namespace GiaiDapWeb.Controllers
         }
         public ActionResult AnswerId(int id)
         {
-            
+           
             return View(db.Answers.FirstOrDefault(m => m.question_id == id));
         }
-
+        public ActionResult ViewAnswer()
+        {
+            db = new RequestDBEntities();
+            List<Answer> lst = db.Answers.ToList<Answer>();
+            //foreach (Answer a in lst)
+            //{
+                
+            //}
+            return View(lst.ToList());
+        }
         
         public ActionResult Detail(int id)
         {
@@ -35,7 +44,8 @@ namespace GiaiDapWeb.Controllers
 
         public ActionResult Create()
         {
-            //ViewBag.CauHoi = new SelectList(db.Questions, "id", "text");
+            //Student s=db.Questions.Where(m=> m.text)
+            //ViewBag.NguoiHoi = db.Questions.
             return View();
         }
 
@@ -44,17 +54,20 @@ namespace GiaiDapWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Exclude = "id")]Answer answer)
         {
-
-
-
+           
+            
             if (ModelState.IsValid)
             {
+                answer.id = db.Answers.Count() + 1;
+                answer.ministry_id = HttpContext.Session["maTaiKhoan"].ToString();
+                answer.time_respond = DateTime.Now;
                 db.Answers.Add(answer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.MaCH = new SelectList(db.Questions, "id", "text", answer.question_id);
+            ViewBag.Message = "Trả lời thành công";
             return View(answer);
         }
 

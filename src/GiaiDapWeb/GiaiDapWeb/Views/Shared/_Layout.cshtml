@@ -67,10 +67,19 @@
                                     <li>@Html.ActionLink("Thông tin tài khoản", "Another", "Try")</li>
                                     <li role="separator" class="divider"></li>
                                     @*<li class="dropdown-header">Thắc mắc</li>*@
+                                    
                                     <li>@Html.ActionLink("Gửi câu hỏi", "Create", "Question")</li>
                                     <li>@Html.ActionLink("Xem trả lời", "AnswerId", "Answer")</li>
                                     <li role="separator" class="divider"></li>
-                                    <li>@Html.ActionLink("Giải đáp", "Something", "Try")</li>
+                                    <li>@Html.ActionLink("Giải đáp", "Create", "Answer")</li>
+                                    @*@{
+                                        
+                                        if (Session["maTaiKhoan"].ToString().StartsWith("99"))
+                                    {
+                                            <li>@Html.ActionLink("Giải đáp", "Something", "Try")</li>
+                                    }
+                                    }*@
+                                    
                                 </ul>
                             </li>
                         </ul>

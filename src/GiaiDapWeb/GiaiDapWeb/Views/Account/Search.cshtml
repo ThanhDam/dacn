@@ -1,0 +1,53 @@
+﻿@model IEnumerable<GiaiDapWeb.Models.Account>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role.role1)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <th>
+                @Html.DisplayFor(model => item.username)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.role1)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.username }) |
+                @Html.ActionLink("Details", "Details", new { id=item.username }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.username })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

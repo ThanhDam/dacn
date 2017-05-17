@@ -10,113 +10,113 @@ using GiaiDapWeb.Models;
 
 namespace GiaiDapWeb.Controllers
 {
-    public class StudentsController : Controller
+    public class MinistriesController : Controller
     {
         private RequestDBEntities db = new RequestDBEntities();
 
-        // GET: Students
+        // GET: Ministries
         public ActionResult Index()
         {
-            return View(db.Students.ToList());
+            return View(db.Ministries.ToList());
         }
 
-        // GET: Students/Details/5
+        // GET: Ministries/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
-            if (student == null)
+            Ministry ministry = db.Ministries.Find(id);
+            if (ministry == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(ministry);
         }
 
-        // GET: Students/Create
+        // GET: Ministries/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Students/Create
+        // POST: Ministries/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "student_id,name,date_of_birth,address,class,sex,school_year,education_level")] Student student)
+        public ActionResult Create([Bind(Include = "ministry_id,name,date_of_birth,address,sex")] Ministry ministry)
         {
             if (ModelState.IsValid)
             {
-                db.Students.Add(student);
+                db.Ministries.Add(ministry);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(student);
+            return View(ministry);
         }
 
-        // GET: Students/Edit/5
+        // GET: Ministries/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
-            if (student == null)
+            Ministry ministry = db.Ministries.Find(id);
+            if (ministry == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(ministry);
         }
 
-        // POST: Students/Edit/5
+        // POST: Ministries/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "student_id,name,date_of_birth,address,class,sex,school_year,education_level")] Student student)
+        public ActionResult Edit([Bind(Include = "ministry_id,name,date_of_birth,address,sex")] Ministry ministry)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(student).State = EntityState.Modified;
+                db.Entry(ministry).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(student);
+            return View(ministry);
         }
 
-        // GET: Students/Delete/5
+        // GET: Ministries/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
-            if (student == null)
+            Ministry ministry = db.Ministries.Find(id);
+            if (ministry == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(ministry);
         }
 
-        // POST: Students/Delete/5
+        // POST: Ministries/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Student student = db.Students.Find(id);
-            //Question va Student co quan he khoa ngoai nen truoc khi xoa student phai xoa question của student do
-            List<Question> lstQuestion = db.Questions.Where(q => q.student_id == id).ToList();
-            foreach (Question q in lstQuestion)
+            Ministry ministry = db.Ministries.Find(id);
+            //Answer và Ministry co quan he khoa ngoai nen truoc khi xoa ministry phai xoa answer của ministry do
+            List<Answer> lstAnswer = db.Answers.Where(q => q.ministry_id == id).ToList();
+            foreach (Answer a in lstAnswer)
             {
-                db.Questions.Remove(q);
+                db.Answers.Remove(a);
             }
-            db.Students.Remove(student);
+            db.Ministries.Remove(ministry);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -130,7 +130,7 @@ namespace GiaiDapWeb.Controllers
             base.Dispose(disposing);
         }
 
-        //Tìm kiếm theo tài khoản sinh viên
+        //Tìm kiếm theo tài khoản giáo vụ
         [HttpPost]
         public ActionResult Search(FormCollection f)
         {
@@ -139,7 +139,7 @@ namespace GiaiDapWeb.Controllers
             if (string.IsNullOrEmpty(s)) return RedirectToAction("Index");
             else
             {
-                ViewData.Model = db.Students.Where(m => m.student_id.Contains(s)).ToList();
+                ViewData.Model = db.Ministries.Where(m => m.ministry_id.Contains(s)).ToList();
             }
             return View();
         }

@@ -28,6 +28,13 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    @{
+                        if (Request.Cookies["myCookies"] != null)
+                        {
+                            HttpCookie ck = new HttpCookie("myCookies");
+                            Session["maTaiKhoan"] = ck["name"].ToString();
+                        }
+                    }
                     <li><a href="@Url.Action("Index3","Account")">Quản lý tài khoản</a></li>
                     <li><a href="@Url.Action("Index","Question")">Quản lý câu hỏi</a></li>
                     <li><a href="@Url.Action("Index","Answer")">Quản lý câu trả lời</a></li>
@@ -48,8 +55,8 @@
                     <li><a href="@Url.Action("Index","Question")">Quản lý câu hỏi</a></li>
                     <li><a href="@Url.Action("Index","Answer")">Quản lý câu trả lời</a></li>
                     <li><a href="">Đánh giá</a></li>
-                    <li><a href="@Url.Action("Index","Student")">Danh sách sinh viên</a></li>
-                    <li><a href="@Url.Action("Index","Ministry")">Danh sách giáo vụ</a></li>
+                    <li><a href="@Url.Action("Index","Students")">Danh sách sinh viên</a></li>
+                    <li><a href="@Url.Action("Index","Ministries")">Danh sách giáo vụ</a></li>
                 </ul>
 
             </div>

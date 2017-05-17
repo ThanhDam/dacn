@@ -1,11 +1,71 @@
-﻿@model GiaiDapWeb.Models.Question
-
+﻿@model  GiaiDapWeb.Models.Question
 @{
-    ViewBag.Title = "Create";
-    Layout = "~/Views/GrantPermission/indexRant3.cshtml";
+    Layout = null;
 }
 
-@{Html.RenderPartial("EditorPartial");}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- website css style -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- website font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/StyleSheet/signin.css">
+
+    <title>Gửi câu hỏi</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <div class="row main">
+                <div class="main-login main-center">
+                    @Html.ValidationSummary(true)
+                    <form class="" method="post" action="#">
+                        <div class="form-group">
+                            <label for="loaiCH" class="cols-sm-2 control-label">Loại câu hỏi</label>
+                            <div class="cols-sm-10">
+                                
+                                    @Html.DropDownList("LoaiCauHoi", String.Empty)
+                                    @Html.ValidationMessageFor(model => model.type_id)
+                                
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="noidung" class="cols-sm-2 control-label">Nội dung câu hỏi</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    
+                                    <textarea  class="form-control" name="newpass" id="noidung" placeholder="Nhập nội dung câu hỏi" style="width:320px"></textarea>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.text)
+                            </div>
+                        </div>
+                       
+                        <div class="form-group ">
+                            <input type="submit" value="Gửi" class="btn btn-primary btn-lg btn-block login-button" />
+                            @ViewBag.Message
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    }
+    <!-- jquery (necessary for bootstrap's javascript plugins) -->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <!-- include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+</body>
+</html>
 
 <div>
     @Html.ActionLink("Back to List", "Index")

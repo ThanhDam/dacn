@@ -28,10 +28,7 @@ namespace GiaiDapWeb.Controllers
         {
             return View(db.Questions.Find(id));
         }
-        public ActionResult Top5Question()
-        {
-            return PartialView(db.Questions.Take(3));
-        }
+        
 
 
 
@@ -46,7 +43,9 @@ namespace GiaiDapWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Exclude = "id")]Question q)
         {
+            q.student_id = HttpContext.Session["maTaiKhoan"].ToString();
             
+            q.time_request = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Questions.Add(q);
@@ -98,10 +97,10 @@ namespace GiaiDapWeb.Controllers
         {
             string s = f["search"];
 
-            if (string.IsNullOrEmpty(s)) return RedirectToAction("Index", "Question");
+            if (string.IsNullOrEmpty(s)) return RedirectToAction("Index3", "Question");
             else
             {
-                ViewData.Model = db.Questions.Where(m => m.text.Contains(s)).ToList();
+                ViewData.Model = db.Questions.Where(m => m.QuestionType.type.Contains(s)).ToList();
             }
             return View();
         }

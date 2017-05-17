@@ -19,7 +19,7 @@ namespace GiaiDapWeb.Controllers
         }
         public ActionResult Index3()
         {
-            return View();
+            return View(db.Accounts);
         }
        
         public ActionResult DangNhap()
@@ -51,7 +51,7 @@ namespace GiaiDapWeb.Controllers
                 ck.Expires = DateTime.Now.AddDays(-1d);
                 Response.Cookies.Add(ck);
             }
-            return Redirect(strURL);
+            return RedirectToAction("Index");
         }
         private bool checktaikhoan(string username, string password)
         {
@@ -132,6 +132,19 @@ namespace GiaiDapWeb.Controllers
                 ViewBag.Message = "Thông tin nhập chưa đúng!!";
                 return RedirectToAction("DoiMatKhau");
             }
+        }
+        //Tìm kiếm theo username
+        [HttpPost]
+        public ActionResult Search(FormCollection f)
+        {
+            string s = f["search"];
+
+            if (string.IsNullOrEmpty(s)) return RedirectToAction("Index3", "Account");
+            else
+            {
+                ViewData.Model = db.Accounts.Where(m => m.username.Contains(s)).ToList();
+            }
+            return View();
         }
 
     
